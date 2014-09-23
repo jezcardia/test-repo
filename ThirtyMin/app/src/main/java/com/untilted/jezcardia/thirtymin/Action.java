@@ -16,8 +16,7 @@ public class Action {
     }
 
     // Constructor for new Action
-    public Action (int id, String name){
-        this._id = id;
+    public Action (String name){
         this.name = name;
 
         // new Actions start with zero points, zero time spent

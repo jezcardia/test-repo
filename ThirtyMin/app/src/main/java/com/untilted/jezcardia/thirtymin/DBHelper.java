@@ -32,8 +32,10 @@ public class DBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " +
                 TABLE_ACTIONS + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_NAME
-                + " TEXT," + COLUMN_POINTS + " INTEGER" + COLUMN_TIME + " INTEGER" + ")";
+                + COLUMN_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_NAME + " TEXT,"
+                + COLUMN_POINTS + " INTEGER"
+                + ")";
         sqLiteDatabase.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
@@ -51,7 +53,7 @@ public class DBHelper extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, action.getName());
         values.put(COLUMN_POINTS, action.getPoints());
-        values.put(COLUMN_TIME, action.getTime());
+//        values.put(COLUMN_TIME, action.getTime());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -74,7 +76,7 @@ public class DBHelper extends SQLiteOpenHelper{
             action.set_id(Integer.parseInt(cursor.getString(0)));
             action.setName(cursor.getString(1));
             action.setPoints(Integer.parseInt(cursor.getString(2)));
-            action.setTime(Integer.parseInt(cursor.getString(3)));
+//            action.setTime(Integer.parseInt(cursor.getString(3)));
             cursor.close();
         } else {
             action = null;
@@ -99,7 +101,7 @@ public class DBHelper extends SQLiteOpenHelper{
                 action.set_id(Integer.parseInt(cursor.getString(0)));
                 action.setName(cursor.getString(1));
                 action.setPoints(Integer.parseInt(cursor.getString(2)));
-                action.setTime(Integer.parseInt(cursor.getString(3)));
+//                action.setTime(Integer.parseInt(cursor.getString(3)));
 
                 // Adding action to list
                 actionList.add(action);
@@ -118,7 +120,7 @@ public class DBHelper extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, action.getName());
         values.put(COLUMN_POINTS, action.getPoints());
-        values.put(COLUMN_TIME, action.getTime());
+//        values.put(COLUMN_TIME, action.getTime());
 
     // Which row to update, based on the ID
         String selection = COLUMN_ID + " LIKE ?";
